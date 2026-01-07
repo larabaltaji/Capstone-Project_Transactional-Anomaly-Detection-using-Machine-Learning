@@ -5,6 +5,7 @@
 ### Year: 2023
 ### Collaboration: Integrated Digital Systems (IDS) Fintech
 ### GitHub Repository: (this repo)
+___
 
 #### Abstract
 
@@ -14,6 +15,7 @@ A comprehensive modeling pipeline was developed, including data preprocessing, d
 
 While several supervised models achieved strong performance when trained on synthetically generated anomalies, the unsupervised autoencoder demonstrated robust detection capabilities without reliance on labels, achieving a ROC-AUC of approximately 0.99 and high recall across multiple anomaly types. Based on both quantitative performance and real-world deployment feasibility, the autoencoder was selected as the optimal model. The project highlights key tradeoffs between supervised and unsupervised approaches in financial anomaly detection and identifies model interpretability as a central limitation and avenue for future research.
 
+___
 #### Problem Setting & Motivation
 
 Financial transaction systems generate high-volume, high-dimensional data where anomalies may correspond to errors, fraud, or operational failures. These anomalies are typically:
@@ -23,6 +25,7 @@ Financial transaction systems generate high-volume, high-dimensional data where 
 
 Traditional rule-based systems are brittle and difficult to scale, motivating the use of machine learning models that can learn normal transaction behavior and identify deviations automatically.
 
+___
 #### Dataset Overview
 
 - Source: IDS Fintech portfolio management and trading systems
@@ -34,17 +37,20 @@ Traditional rule-based systems are brittle and difficult to scale, motivating th
 
 Seven anomaly types were considered, including abnormal settlement dates, pricing deviations, unusual exchange rates, and invalid quantities.
 
+___
 #### Methodology
 
 The project followed the CRISP-DM framework, with iterative refinement across stages.
 
-##### Data Preparation & Feature Engineering
+
+###### Data Preparation & Feature Engineering
 
 - Removal of duplicates and leakage prevention via pipeline-based preprocessing
 - Feature scaling using standardization
 - Domain-informed feature extraction (e.g., settlement date differences, unit price–cost ratios, working-hours indicators)
+- 
 
-##### Modeling Approaches
+###### Modeling Approaches
 
 - Supervised Models (8):
 Logistic Regression, KNN, Naïve Bayes, SVM, Decision Tree, Random Forest, XGBoost, Artificial Neural Networks
@@ -54,6 +60,7 @@ Isolation Forest, Local Outlier Factor, One-Class SVM, Deep Autoencoder
 
 Hyperparameters were optimized using GridSearch and KerasTuner, targeting ROC-AUC maximization.
 
+___
 #### Evaluation Strategy
 
 Given extreme class imbalance, accuracy was explicitly avoided as a primary metric. Models were evaluated using:
@@ -63,6 +70,7 @@ Given extreme class imbalance, accuracy was explicitly avoided as a primary metr
 - Confusion matrices (TP, FP, TN, FN)
 Supervised and unsupervised models were compared under identical evaluation conditions.
 
+___
 #### Key Results
 
 - Supervised models achieved near-perfect performance when trained on labeled anomalies (e.g., ANN and XGBoost).
@@ -70,20 +78,23 @@ Supervised and unsupervised models were compared under identical evaluation cond
 -   ROC-AUC ≈ 0.99
 -   Macro-averaged recall ≈ 0.96
 -   Successfully detected 32 out of 34 validation anomalies
-- 
+  
 - The autoencoder generalized across multiple anomaly types without explicit labeling.
-
+  
+___
 #### Model Selection Rationale
 
 Despite strong supervised performance, the autoencoder was selected as the final model due to:
 - Independence from labeled anomalies,
 - Robust detection of heterogeneous anomaly types,
 - Alignment with real-world financial constraints where labels are incomplete or unavailable.
-
+  
+___
 #### Deployment
 
 The final model was deployed using Streamlit, allowing users to input transaction attributes and receive real-time anomaly predictions. Preprocessing pipelines and trained models were serialized to ensure consistency between training and deployment.
 
+___
 #### Limitations & Future Work
 
 - Current model identifies anomalous records but lacks feature-level interpretability.
@@ -92,11 +103,12 @@ The final model was deployed using Streamlit, allowing users to input transactio
 -   Cell-level anomaly identification,
 -   Confidence-based correction suggestions.
 
+___
 #### Technologies Used
 
 Python, Scikit-learn, TensorFlow/Keras, PyOD, XGBoost, Pandas, NumPy, Matplotlib, Seaborn, Streamlit
 
-
+___
 _Note: Check out the Jupyter notebook file and project report for more information_
 
 
