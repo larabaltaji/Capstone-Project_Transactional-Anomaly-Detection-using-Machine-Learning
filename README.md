@@ -5,7 +5,7 @@
 ### Year: 2023
 ### Collaboration: Integrated Digital Systems (IDS) Fintech
 ### GitHub Repository: (this repo)
-___
+__
 
 #### Abstract
 
@@ -43,14 +43,14 @@ ___
 The project followed the CRISP-DM framework, with iterative refinement across stages.
 
 
-###### Data Preparation & Feature Engineering
+##### Data Preparation & Feature Engineering
 
 - Removal of duplicates and leakage prevention via pipeline-based preprocessing
 - Feature scaling using standardization
 - Domain-informed feature extraction (e.g., settlement date differences, unit price–cost ratios, working-hours indicators)
 - 
 
-###### Modeling Approaches
+##### Modeling Approaches
 
 - Supervised Models (8):
 Logistic Regression, KNN, Naïve Bayes, SVM, Decision Tree, Random Forest, XGBoost, Artificial Neural Networks
